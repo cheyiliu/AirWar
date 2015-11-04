@@ -8,10 +8,14 @@
 #ifndef SCENELOADING_H_
 #define SCENELOADING_H_
 
-class SceneLoading {
+#include "cocos2d.h"
+
+class SceneLoading : public cocos2d::Scene {
 public:
 	SceneLoading();
 	virtual ~SceneLoading();
+	virtual bool init();
+	CREATE_FUNC(SceneLoading);
 };
 
 #endif /* SCENELOADING_H_ */

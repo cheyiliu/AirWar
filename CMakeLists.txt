@@ -126,12 +126,16 @@ set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/HelloWorldScene.cpp
   ${PLATFORM_SPECIFIC_SRC}
+  Classes/sceneLoading/SceneLoading.cpp
+  Classes/sceneLoading/LayerLoading.cpp
 )
 
 set(GAME_HEADERS
   Classes/AppDelegate.h
   Classes/HelloWorldScene.h
   ${PLATFORM_SPECIFIC_HEADERS}
+  Classes/sceneLoading/SceneLoading.h
+  Classes/sceneLoading/LayerLoading.h
 )
 
 if(GAME_HEADERS)
