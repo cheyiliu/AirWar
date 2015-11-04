@@ -16,6 +16,12 @@ public:
 	virtual ~SceneLoading();
 	virtual bool init();
 	CREATE_FUNC(SceneLoading);
+
+private:
+	void checkMusicReady(float dt);
+	void preloadMusic();
+
+	bool mIsMusicReady;
 };
 
 #endif /* SCENELOADING_H_ */
