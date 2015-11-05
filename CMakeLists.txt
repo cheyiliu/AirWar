@@ -128,6 +128,9 @@ set(GAME_SRC
   ${PLATFORM_SPECIFIC_SRC}
   Classes/sceneLoading/SceneLoading.cpp
   Classes/sceneLoading/LayerLoading.cpp
+
+  Classes/sceneGame/SceneGame.cpp
+  Classes/sceneGame/LayerOfBg.cpp
 )
 
 set(GAME_HEADERS
@@ -136,6 +139,9 @@ set(GAME_HEADERS
   ${PLATFORM_SPECIFIC_HEADERS}
   Classes/sceneLoading/SceneLoading.h
   Classes/sceneLoading/LayerLoading.h
+
+  Classes/sceneGame/SceneGame.h
+  Classes/sceneGame/LayerOfBg.h
 )
 
 if(GAME_HEADERS)

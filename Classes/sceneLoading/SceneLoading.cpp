@@ -10,6 +10,8 @@
 #include "../sceneGame/SceneGame.h"
 #include "SimpleAudioEngine.h"
 
+USING_NS_CC;
+
 SceneLoading::SceneLoading() {
 	// TODO Auto-generated constructor stub
 	mIsMusicReady = false;
