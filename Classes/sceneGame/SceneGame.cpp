@@ -8,6 +8,8 @@
 #include "SceneGame.h"
 #include "LayerOfBg.h"
 
+USING_NS_CC;
+
 SceneGame::SceneGame() {
 	// TODO Auto-generated constructor stub
 
@@ -17,7 +19,7 @@ SceneGame::~SceneGame() {
 	// TODO Auto-generated destructor stub
 }
 
-Scene SceneGame::create() {
+Scene* SceneGame::create() {
 	auto scene = Scene::createWithPhysics();
 
 	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
@@ -35,5 +37,5 @@ Scene SceneGame::create() {
 	auto layerBg = LayerOfBg::create();
 	scene->addChild(layerBg);
 
-	return scene
+	return scene;
 }
