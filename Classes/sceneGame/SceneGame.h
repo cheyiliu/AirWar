@@ -8,10 +8,15 @@
 #ifndef SCENEGAME_H_
 #define SCENEGAME_H_
 
-class SceneGame {
+#include "cocos2d.h"
+
+class SceneGame : public cocos2d::Scene {
 public:
 	SceneGame();
 	virtual ~SceneGame();
+
+	virtual bool init();
+	CREATE_FUNC(SceneGame);
 };
 
 #endif /* SCENEGAME_H_ */

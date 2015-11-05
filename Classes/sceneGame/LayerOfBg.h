@@ -8,10 +8,21 @@
 #ifndef LAYEROFBG_H_
 #define LAYEROFBG_H_
 
-class LayerOfBg {
+#include "cocos2d.h"
+
+class LayerOfBg : public cocos2d::Layer   {
 public:
 	LayerOfBg();
 	virtual ~LayerOfBg();
+
+	virtual bool init();
+	CREATE_FUNC(LayerOfBg);
+
+	void updateBg(float dt);
+
+private:
+	Sprite* mBg1;
+	Sprite* mBg2;
 };
 
 #endif /* LAYEROFBG_H_ */
