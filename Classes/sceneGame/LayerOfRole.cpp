@@ -8,6 +8,7 @@
 #include "LayerOfRole.h"
 #include "../role/Role.h"
 #include "../role/RoleHeroPlane.h"
+#include "../role/RoleEnemySmall.h"
 
 LayerOfRole::LayerOfRole() {
 	// TODO Auto-generated constructor stub
@@ -22,9 +23,15 @@ bool LayerOfRole::init() {
 	bool bRet = false;
 	do {
 		CC_BREAK_IF(!Layer::init());
+
 		registerPhysicalEventListener();
+
 		auto hero = RoleHeroPlane::create();
 		addChild(hero);
+
+		auto enemySmall = RoleEnemySmall::create();
+		addChild(enemySmall);
+
 		bRet = true;
 	} while (0);
 

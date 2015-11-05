@@ -8,10 +8,24 @@
 #ifndef ROLEENEMYSMALL_H_
 #define ROLEENEMYSMALL_H_
 
-class RoleEnemySmall {
+#include "Role.h"
+
+class RoleEnemySmall: public Role, public Sprite  {
 public:
 	RoleEnemySmall();
 	virtual ~RoleEnemySmall();
+
+	// from Role
+	virtual void hit(Role* target);
+	virtual void gotDamage(int damage);
+	virtual void gotSupply(int supply);
+	virtual void down();
+
+	virtual bool init();
+	CREATE_FUNC(RoleEnemySmall);
+
+private:
+	void doRemoveSelf(Node* pSender);
 };
 
 #endif /* ROLEENEMYSMALL_H_ */

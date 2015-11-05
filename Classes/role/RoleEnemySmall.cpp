@@ -16,3 +16,63 @@ RoleEnemySmall::~RoleEnemySmall() {
 	// TODO Auto-generated destructor stub
 }
 
+bool RoleEnemySmall::init() {
+	bool bRet = false;
+	do {
+		CC_BREAK_IF(!Sprite::initWithSpriteFrameName("enemy1.png"));
+
+		// set physical body
+		auto body = PhysicsBody::createBox(getContentSize());
+		body->setGroup(PHYSICAL_BODY_ENEMY_GROUP);
+		body->setCategoryBitmask(PHYSICAL_BODY_ENEMY_BITMASK_CATEGORY);
+		body->setContactTestBitmask(PHYSICAL_BODY_ENEMY_BITMASK_CONTACT_TEST);
+		body->setCollisionBitmask(PHYSICAL_BODY_ENEMY_BITMASK_COLLISION);
+		setPhysicsBody(body);
+
+		// set position
+		auto enemy1Size = getContentSize();
+		auto winSize = Director::getInstance()->getWinSize();
+		int minX = enemy1Size.width / 2;
+		int maxX = winSize.width - enemy1Size.width / 2;
+		int rangeX = maxX - minX;
+		int actualX = (rand() % rangeX) + minX;
+		setPosition(Point(actualX, winSize.height + enemy1Size.height / 2));
+
+		// run action
+		float minDuration, maxDuration;
+		minDuration = 2.0f;
+		maxDuration = 4.0f;
+
+		int rangeDuration = maxDuration - minDuration;
+		int actualDuration = (rand() % rangeDuration) + minDuration;
+
+		auto actionMove = MoveTo::create(actualDuration,
+				Point(actualX,
+						0 - enemy1->getSprite()->getContentSize().height / 2));
+		auto actionDone = CallFuncN::create(
+				CC_CALLBACK_1(RoleEnemySmall::doRemoveSelf, this));
+
+		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
+		runAction(sequence);
+
+		bRet = true;
+	} while (0);
+
+	return bRet;
+}
+
+void RoleEnemySmall::hit(Role* target) {
+}
+
+void RoleEnemySmall::gotDamage(int damage) {
+}
+
+void RoleEnemySmall::gotSupply(int supply) {
+}
+
+void RoleEnemySmall::down() {
+}
+
+void RoleEnemySmall::doRemoveSelf(Node* pSender) {
+	removeFromParent();
+}
