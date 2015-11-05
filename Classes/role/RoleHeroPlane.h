@@ -8,10 +8,21 @@
 #ifndef ROLEHEROPLANE_H_
 #define ROLEHEROPLANE_H_
 
-class RoleHeroPlane {
+#include "Role.h"
+
+class RoleHeroPlane: public Role, public Sprite {
 public:
 	RoleHeroPlane();
 	virtual ~RoleHeroPlane();
+
+	// from Role
+	virtual void hit(Role* target);
+	virtual void gotDamage(int damage);
+	virtual void gotSupply(int supply);
+	virtual void down();
+
+	virtual bool init();
+	CREATE_FUNC(RoleHeroPlane);
 };
 
 #endif /* ROLEHEROPLANE_H_ */
