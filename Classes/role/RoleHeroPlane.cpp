@@ -24,7 +24,7 @@ bool RoleHeroPlane::init() {
 		auto winSize = Director::getInstance()->getWinSize();
 
 		setPosition(
-				Point(winSize.width / 2, plane->getContentSize().height / 2));
+				Point(winSize.width / 2, getContentSize().height / 2));
 
 		auto blink = Blink::create(1, 3);
 

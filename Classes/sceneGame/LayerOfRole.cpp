@@ -23,7 +23,7 @@ bool LayerOfRole::init() {
 	do {
 		CC_BREAK_IF(!Layer::init());
 		registerPhysicalEventListener();
-		auto hero = RoleHeroPlane::Create();
+		auto hero = RoleHeroPlane::create();
 		addChild(hero);
 		bRet = true;
 	} while (0);

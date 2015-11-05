@@ -130,6 +130,7 @@ set(GAME_SRC
   Classes/sceneLoading/LayerLoading.cpp
 
   Classes/role/Role.cpp
+  Classes/role/RoleHeroPlane.cpp 
 
   Classes/sceneGame/SceneGame.cpp
   Classes/sceneGame/LayerOfBg.cpp
@@ -143,7 +144,8 @@ set(GAME_HEADERS
   Classes/sceneLoading/SceneLoading.h
   Classes/sceneLoading/LayerLoading.h
 
-  Classes/role/Role.h 
+  Classes/role/Role.h
+  Classes/role/RoleHeroPlane.h 
 
   Classes/sceneGame/SceneGame.h
   Classes/sceneGame/LayerOfBg.h
