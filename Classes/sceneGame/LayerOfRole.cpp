@@ -6,6 +6,7 @@
  */
 
 #include "LayerOfRole.h"
+#include "../role/Role.h"
 
 LayerOfRole::LayerOfRole() {
 	// TODO Auto-generated constructor stub
@@ -51,7 +52,7 @@ void LayerOfRole::registerPhysicalEventListener() {
 			const PhysicsContactPostSolve& solve) {
 	};
 
-	listener->onContactSeperate = [](PhysicsContact& contact) {
+	listener->onContactSeparate = [](PhysicsContact& contact) {
 	};
 
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(

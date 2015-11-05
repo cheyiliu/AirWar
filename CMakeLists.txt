@@ -129,6 +129,8 @@ set(GAME_SRC
   Classes/sceneLoading/SceneLoading.cpp
   Classes/sceneLoading/LayerLoading.cpp
 
+  Classes/role/Role.cpp
+
   Classes/sceneGame/SceneGame.cpp
   Classes/sceneGame/LayerOfBg.cpp
   Classes/sceneGame/LayerOfRole.cpp
@@ -140,6 +142,8 @@ set(GAME_HEADERS
   ${PLATFORM_SPECIFIC_HEADERS}
   Classes/sceneLoading/SceneLoading.h
   Classes/sceneLoading/LayerLoading.h
+
+  Classes/role/Role.h 
 
   Classes/sceneGame/SceneGame.h
   Classes/sceneGame/LayerOfBg.h
