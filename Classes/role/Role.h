@@ -8,6 +8,11 @@
 #ifndef ROLE_H_
 #define ROLE_H_
 
+#include "cocos2d.h"
+#include "Config.h"
+
+USING_NS_CC;
+
 class Role {
 public:
 	Role();

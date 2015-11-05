@@ -17,15 +17,23 @@ SceneGame::~SceneGame() {
 	// TODO Auto-generated destructor stub
 }
 
-bool SceneGame::init() {
-	bool bRet = false;
-	do {
-		CC_BREAK_IF(!Scene::init());
-		auto layerBg = LayerOfBg::create();
-		CC_BREAK_IF(!layerBg);
-		this->addChild(layerBg);
-		bRet = true;
-	} while (0);
+Scene SceneGame::create() {
+	auto scene = Scene::createWithPhysics();
 
-	return bRet;
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+
+	auto visibleSize = Director::getInstance()->getVisibleSize();
+	auto body = PhysicsBody::createEdgeBox(visibleSize,
+			PHYSICSBODY_MATERIAL_DEFAULT, 5.0f);
+	auto edgeNode = Node::create();
+	edgeNode->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
+	edgeNode->setPhysicsBody(body);
+	scene->addChild(edgeNode);
+	Vect gravity = Vect(0.0f, 0.0f);
+	scene->getPhysicsWorld()->setGravity(gravity);
+
+	auto layerBg = LayerOfBg::create();
+	scene->addChild(layerBg);
+
+	return scene
 }

@@ -10,13 +10,14 @@
 
 #include "cocos2d.h"
 
-class SceneGame : public cocos2d::Scene {
+USING_NS_CC;
+
+class SceneGame {
 public:
 	SceneGame();
 	virtual ~SceneGame();
 
-	virtual bool init();
-	CREATE_FUNC(SceneGame);
+	static Scene* create();
 };
 
 #endif /* SCENEGAME_H_ */
