@@ -18,7 +18,10 @@ public:
 	virtual ~LayerOfRole();
 
 	virtual bool init();
-	CREATE_FUNC(LayerOfBg);
+	CREATE_FUNC(LayerOfRole);
+
+private:
+	void registerPhysicalEventListener();
 };
 
 #endif /* LAYEROFROLE_H_ */

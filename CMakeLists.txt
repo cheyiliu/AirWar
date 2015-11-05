@@ -131,6 +131,7 @@ set(GAME_SRC
 
   Classes/sceneGame/SceneGame.cpp
   Classes/sceneGame/LayerOfBg.cpp
+  Classes/sceneGame/LayerOfRole.cpp
 )
 
 set(GAME_HEADERS
@@ -142,6 +143,7 @@ set(GAME_HEADERS
 
   Classes/sceneGame/SceneGame.h
   Classes/sceneGame/LayerOfBg.h
+  Classes/sceneGame/LayerOfRole.h
 )
 
 if(GAME_HEADERS)

@@ -7,6 +7,7 @@
 
 #include "SceneGame.h"
 #include "LayerOfBg.h"
+#include "LayerOfRole.h"
 
 USING_NS_CC;
 
@@ -35,7 +36,10 @@ Scene* SceneGame::create() {
 	scene->getPhysicsWorld()->setGravity(gravity);
 
 	auto layerBg = LayerOfBg::create();
-	scene->addChild(layerBg);
+	scene->addChild(layerBg, 10);
+
+	auto layerRole = LayerOfRole::create();
+	scene->addChild(layerRole, 20);
 
 	return scene;
 }
