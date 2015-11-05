@@ -131,11 +131,11 @@ set(GAME_SRC
 
   Classes/role/Role.cpp
   Classes/role/RoleHeroPlane.cpp 
+  Classes/role/RoleEnemySmall.cpp
 
   Classes/sceneGame/SceneGame.cpp
   Classes/sceneGame/LayerOfBg.cpp
   Classes/sceneGame/LayerOfRole.cpp
-  Classes/sceneGame/RoleEnemySmall.cpp
 )
 
 set(GAME_HEADERS
@@ -148,11 +148,11 @@ set(GAME_HEADERS
   Classes/role/Role.h
   Classes/role/RoleHeroPlane.h 
   Classes/role/RoleHeroPlane.h 
-  
+  Classes/role/RoleEnemySmall.h
+
   Classes/sceneGame/SceneGame.h
   Classes/sceneGame/LayerOfBg.h
   Classes/sceneGame/LayerOfRole.h
-  Classes/sceneGame/RoleEnemySmall.h
 )
 
 if(GAME_HEADERS)

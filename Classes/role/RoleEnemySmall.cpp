@@ -48,7 +48,7 @@ bool RoleEnemySmall::init() {
 
 		auto actionMove = MoveTo::create(actualDuration,
 				Point(actualX,
-						0 - enemy1->getSprite()->getContentSize().height / 2));
+						0 - getContentSize().height / 2));
 		auto actionDone = CallFuncN::create(
 				CC_CALLBACK_1(RoleEnemySmall::doRemoveSelf, this));
 
@@ -76,3 +76,4 @@ void RoleEnemySmall::down() {
 void RoleEnemySmall::doRemoveSelf(Node* pSender) {
 	removeFromParent();
 }
+
