@@ -6,6 +6,7 @@
  */
 
 #include "RoleEnemySmall.h"
+#include "SimpleAudioEngine.h"
 
 RoleEnemySmall::RoleEnemySmall() {
 	// TODO Auto-generated constructor stub
@@ -73,6 +74,16 @@ void RoleEnemySmall::gotSupply(int supply) {
 }
 
 void RoleEnemySmall::down() {
-	removeFromParent();
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(
+			"sound/enemy1_down.mp3");
+	auto animation = AnimationCache::getInstance()->getAnimation(
+			"Enemy1Blowup");
+	auto animate = Animate::create(animation);
+
+	auto remove = CallFunc::create(
+			CC_CALLBACK_0(RoleEnemySmall::removeFromParent, this));
+	auto sequence = Sequence::create(animate, remove, nullptr);
+	runAction(sequence);
 }
+
 

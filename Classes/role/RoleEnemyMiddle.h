@@ -8,10 +8,22 @@
 #ifndef ROLEENEMYMIDDLE_H_
 #define ROLEENEMYMIDDLE_H_
 
-class RoleEnemyMiddle {
+#include "Role.h"
+
+class RoleEnemyMiddle: public Role, public Sprite {
 public:
 	RoleEnemyMiddle();
 	virtual ~RoleEnemyMiddle();
+
+	// from Role
+	virtual void hit(Role* target);
+	virtual void gotDamage(int damage);
+	virtual void gotSupply(int supply);
+	virtual void down();
+
+	virtual bool init();
+	CREATE_FUNC (RoleEnemyMiddle);
 };
 
 #endif /* ROLEENEMYMIDDLE_H_ */
+

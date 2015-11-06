@@ -9,6 +9,8 @@
 #include "../role/Role.h"
 #include "../role/RoleHeroPlane.h"
 #include "../role/RoleEnemySmall.h"
+#include "../role/RoleEnemyMiddle.h"
+#include "../role/RoleEnemyBig.h"
 
 LayerOfRole::LayerOfRole() {
 	// TODO Auto-generated constructor stub
@@ -25,12 +27,16 @@ bool LayerOfRole::init() {
 		CC_BREAK_IF(!Layer::init());
 
 		registerPhysicalEventListener();
+		cacheAnimation();
 
 		auto hero = RoleHeroPlane::create();
 		addChild(hero);
 
 		auto enemySmall = RoleEnemySmall::create();
 		addChild(enemySmall);
+
+		//auto enemyMiddle = RoleEnemyMiddle::create();
+		//addChild(enemyMiddle);
 
 		bRet = true;
 	} while (0);
@@ -68,3 +74,63 @@ void LayerOfRole::registerPhysicalEventListener() {
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(
 			listener, 1);
 }
+
+void LayerOfRole::cacheAnimation() {
+
+	auto animation1 = Animation::create();
+	animation1->setDelayPerUnit(0.1f);
+	animation1->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy1_down1.png"));
+	animation1->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy1_down2.png"));
+	animation1->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy1_down3.png"));
+	animation1->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy1_down4.png"));
+
+	auto animation2 = Animation::create();
+	animation2->setDelayPerUnit(0.1f);
+	animation2->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy2_down1.png"));
+	animation2->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy2_down2.png"));
+	animation2->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy2_down3.png"));
+	animation2->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy2_down4.png"));
+
+	auto animation3 = Animation::create();
+	animation3->setDelayPerUnit(0.1f);
+	animation3->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy3_down1.png"));
+	animation3->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy3_down2.png"));
+	animation3->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy3_down3.png"));
+	animation3->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy3_down4.png"));
+	animation3->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy3_down5.png"));
+	animation3->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"enemy3_down6.png"));
+
+	AnimationCache::getInstance()->addAnimation(animation1, "Enemy1Blowup");
+	AnimationCache::getInstance()->addAnimation(animation2, "Enemy2Blowup");
+	AnimationCache::getInstance()->addAnimation(animation3, "Enemy3Blowup");
+
+}
+

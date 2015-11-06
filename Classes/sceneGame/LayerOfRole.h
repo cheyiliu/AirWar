@@ -22,6 +22,8 @@ public:
 
 private:
 	void registerPhysicalEventListener();
+	void cacheAnimation();
 };
 
 #endif /* LAYEROFROLE_H_ */
+
