@@ -6,7 +6,6 @@
  */
 
 #include "LayerOfBg.h"
-#include "SimpleAudioEngine.h"
 
 LayerOfBg::LayerOfBg() {
 	// TODO Auto-generated constructor stub
@@ -21,10 +20,6 @@ bool LayerOfBg::init() {
 	bool bRet = false;
 	do {
 		CC_BREAK_IF(!Layer::init());
-		if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
-			CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(
-					"sound/game_music.mp3", true);
-		}
 
 		mBg1 = Sprite::createWithSpriteFrameName("background.png");
 		mBg1->setAnchorPoint(Point::ZERO);
