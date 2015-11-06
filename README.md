@@ -21,11 +21,14 @@ AirWar is an Open Source game based on Cocos3.x. Tense and exciting, try and see
 If you find any bug when using AirWar, please report **[here](https://github.com/cheyiliu/AirWar/issues/new)**. Thanks for helping us building a better one.
 
 ## Change logs
-### 0.3
+
+### v0.3
  * the physical engine is work
-### 0.2
+
+### v0.2
  * the loading scene is ready
-### 0.1
+
+### v0.1
  * the blueprint is ready
  
 ## License
