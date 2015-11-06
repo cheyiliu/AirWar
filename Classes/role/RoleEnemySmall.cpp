@@ -36,6 +36,7 @@ bool RoleEnemySmall::init() {
 		int maxX = winSize.width - enemy1Size.width / 2;
 		int rangeX = maxX - minX;
 		int actualX = (rand() % rangeX) + minX;
+		actualX = winSize.width / 2; //TODO rm this test code
 		setPosition(Point(actualX, winSize.height + enemy1Size.height / 2));
 
 		// run action
@@ -47,10 +48,9 @@ bool RoleEnemySmall::init() {
 		int actualDuration = (rand() % rangeDuration) + minDuration;
 
 		auto actionMove = MoveTo::create(actualDuration,
-				Point(actualX,
-						0 - getContentSize().height / 2));
+				Point(actualX, 0 - getContentSize().height / 2));
 		auto actionDone = CallFuncN::create(
-				CC_CALLBACK_1(RoleEnemySmall::doRemoveSelf, this));
+				CC_CALLBACK_0(RoleEnemySmall::doRemoveSelf, this));
 
 		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 		runAction(sequence);
@@ -62,18 +62,22 @@ bool RoleEnemySmall::init() {
 }
 
 void RoleEnemySmall::hit(Role* target) {
+	target->gotDamage(100);
 }
 
 void RoleEnemySmall::gotDamage(int damage) {
+	down();
 }
 
 void RoleEnemySmall::gotSupply(int supply) {
 }
 
 void RoleEnemySmall::down() {
+	doRemoveSelf();
 }
 
-void RoleEnemySmall::doRemoveSelf(Node* pSender) {
+void RoleEnemySmall::doRemoveSelf() {
 	removeFromParent();
 }
+
 

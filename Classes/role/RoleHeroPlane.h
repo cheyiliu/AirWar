@@ -22,7 +22,11 @@ public:
 	virtual void down();
 
 	virtual bool init();
-	CREATE_FUNC(RoleHeroPlane);
+	CREATE_FUNC (RoleHeroPlane);
+
+private:
+	void doRemoveSelf();
 };
 
 #endif /* ROLEHEROPLANE_H_ */
+

@@ -55,13 +55,47 @@ bool RoleHeroPlane::init() {
 }
 
 void RoleHeroPlane::hit(Role* target) {
+	int force = 100;
+	target->gotDamage(force);
 }
 
 void RoleHeroPlane::gotDamage(int damage) {
+//	int life = 100;// TODO life and force settings will be consider after the main process is ready
+//	if(life - damage <= 0){
+//		life = 0;
+//		down();
+//	}
+	down();
 }
 
 void RoleHeroPlane::gotSupply(int supply) {
 }
 
 void RoleHeroPlane::down() {
+	auto animation = Animation::create();
+	animation->setDelayPerUnit(0.2f);
+	animation->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"hero_blowup_n1.png"));
+	animation->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"hero_blowup_n2.png"));
+	animation->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"hero_blowup_n3.png"));
+	animation->addSpriteFrame(
+			SpriteFrameCache::getInstance()->getSpriteFrameByName(
+					"hero_blowup_n4.png"));
+
+	auto animate = Animate::create(animation);
+	auto removePlane = CallFunc::create(
+			CC_CALLBACK_0(RoleHeroPlane::doRemoveSelf, this));
+	auto sequence = Sequence::create(animate, removePlane, nullptr);
+	stopAllActions();
+	runAction(sequence);
 }
+
+void RoleHeroPlane::doRemoveSelf() {
+	removeFromParent();
+}
+

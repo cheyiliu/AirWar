@@ -10,7 +10,7 @@
 
 #include "Role.h"
 
-class RoleEnemySmall: public Role, public Sprite  {
+class RoleEnemySmall: public Role, public Sprite {
 public:
 	RoleEnemySmall();
 	virtual ~RoleEnemySmall();
@@ -22,10 +22,11 @@ public:
 	virtual void down();
 
 	virtual bool init();
-	CREATE_FUNC(RoleEnemySmall);
+	CREATE_FUNC (RoleEnemySmall);
 
 private:
-	void doRemoveSelf(Node* pSender);
+	void doRemoveSelf();
 };
 
 #endif /* ROLEENEMYSMALL_H_ */
+
