@@ -32,11 +32,14 @@ bool LayerOfRole::init() {
 		auto hero = RoleHeroPlane::create();
 		addChild(hero);
 
-		auto enemySmall = RoleEnemySmall::create();
-		addChild(enemySmall);
+		//auto enemySmall = RoleEnemySmall::create();
+		//addChild(enemySmall);
 
 		//auto enemyMiddle = RoleEnemyMiddle::create();
 		//addChild(enemyMiddle);
+
+		auto enemyBig = RoleEnemyBig::create();
+		addChild(enemyBig);
 
 		bRet = true;
 	} while (0);
