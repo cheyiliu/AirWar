@@ -23,10 +23,8 @@ public:
 
 	virtual bool init();
 	CREATE_FUNC (RoleHeroPlane);
-
-private:
-	void doRemoveSelf();
 };
 
 #endif /* ROLEHEROPLANE_H_ */
+
 

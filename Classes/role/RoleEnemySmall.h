@@ -23,10 +23,8 @@ public:
 
 	virtual bool init();
 	CREATE_FUNC (RoleEnemySmall);
-
-private:
-	void doRemoveSelf();
 };
 
 #endif /* ROLEENEMYSMALL_H_ */
+
 

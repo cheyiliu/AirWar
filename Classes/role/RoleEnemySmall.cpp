@@ -50,7 +50,7 @@ bool RoleEnemySmall::init() {
 		auto actionMove = MoveTo::create(actualDuration,
 				Point(actualX, 0 - getContentSize().height / 2));
 		auto actionDone = CallFuncN::create(
-				CC_CALLBACK_0(RoleEnemySmall::doRemoveSelf, this));
+				CC_CALLBACK_0(RoleEnemySmall::removeFromParent, this));
 
 		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 		runAction(sequence);
@@ -73,11 +73,6 @@ void RoleEnemySmall::gotSupply(int supply) {
 }
 
 void RoleEnemySmall::down() {
-	doRemoveSelf();
-}
-
-void RoleEnemySmall::doRemoveSelf() {
 	removeFromParent();
 }
-
 

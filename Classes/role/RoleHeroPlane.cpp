@@ -89,13 +89,9 @@ void RoleHeroPlane::down() {
 
 	auto animate = Animate::create(animation);
 	auto removePlane = CallFunc::create(
-			CC_CALLBACK_0(RoleHeroPlane::doRemoveSelf, this));
+			CC_CALLBACK_0(RoleHeroPlane::removeFromParent, this));
 	auto sequence = Sequence::create(animate, removePlane, nullptr);
 	stopAllActions();
 	runAction(sequence);
-}
-
-void RoleHeroPlane::doRemoveSelf() {
-	removeFromParent();
 }
 
