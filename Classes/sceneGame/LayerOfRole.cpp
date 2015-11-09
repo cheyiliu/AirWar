@@ -11,6 +11,8 @@
 #include "../role/RoleEnemySmall.h"
 #include "../role/RoleEnemyMiddle.h"
 #include "../role/RoleEnemyBig.h"
+#include "../role/RoleSupplySupperGun.h"
+#include "../role/RoleSupplyDoubleGun.h"
 
 LayerOfRole::LayerOfRole() {
 	// TODO Auto-generated constructor stub
@@ -38,8 +40,14 @@ bool LayerOfRole::init() {
 		//auto enemyMiddle = RoleEnemyMiddle::create();
 		//addChild(enemyMiddle);
 
-		auto enemyBig = RoleEnemyBig::create();
-		addChild(enemyBig);
+		//auto enemyBig = RoleEnemyBig::create();
+		//addChild(enemyBig);
+
+		//auto supplySupper = RoleSupplySupperGun::create();
+		//addChild(supplySupper);
+
+		auto supplyDouble = RoleSupplyDoubleGun::create();
+		addChild(supplyDouble);
 
 		bRet = true;
 	} while (0);

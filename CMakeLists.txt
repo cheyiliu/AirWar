@@ -135,6 +135,9 @@ set(GAME_SRC
   Classes/role/RoleEnemyMiddle.cpp
   Classes/role/RoleEnemyBig.cpp
 
+  Classes/role/RoleSupplySupperGun.cpp
+  Classes/role/RoleSupplyDoubleGun.cpp
+
   Classes/sceneGame/SceneGame.cpp
   Classes/sceneGame/LayerOfBg.cpp
   Classes/sceneGame/LayerOfRole.cpp
@@ -152,6 +155,9 @@ set(GAME_HEADERS
   Classes/role/RoleEnemySmall.h
   Classes/role/RoleEnemyMiddle.h
   Classes/role/RoleEnemyBig.h
+
+  Classes/role/RoleSupplySupperGun.h
+  Classes/role/RoleSupplyDoubleGun.h
 
   Classes/sceneGame/SceneGame.h
   Classes/sceneGame/LayerOfBg.h

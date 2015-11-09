@@ -69,6 +69,7 @@ void RoleHeroPlane::gotDamage(int damage) {
 }
 
 void RoleHeroPlane::gotSupply(int supply) {
+	log("hero got suppy ");
 }
 
 void RoleHeroPlane::down() {
