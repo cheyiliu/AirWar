@@ -13,6 +13,8 @@
 #include "../role/RoleEnemyBig.h"
 #include "../role/RoleSupplySupperGun.h"
 #include "../role/RoleSupplyDoubleGun.h"
+#include "../role/RoleBulletBlue.h"
+#include "../role/RoleBulletYellow.h"
 
 LayerOfRole::LayerOfRole() {
 	// TODO Auto-generated constructor stub
@@ -46,8 +48,15 @@ bool LayerOfRole::init() {
 		//auto supplySupper = RoleSupplySupperGun::create();
 		//addChild(supplySupper);
 
-		auto supplyDouble = RoleSupplyDoubleGun::create();
-		addChild(supplyDouble);
+		//auto supplyDouble = RoleSupplyDoubleGun::create();
+		//addChild(supplyDouble);
+
+		auto winSize = Director::getInstance()->getWinSize();
+		auto bulletYellow = RoleBulletYellow::create(winSize.width / 2, getContentSize().height / 2);
+		addChild(bulletYellow);
+
+		auto bulletBlue = RoleBulletBlue::create(winSize.width / 2 + 20, getContentSize().height / 2);
+		addChild(bulletBlue);
 
 		bRet = true;
 	} while (0);

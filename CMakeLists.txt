@@ -138,6 +138,9 @@ set(GAME_SRC
   Classes/role/RoleSupplySupperGun.cpp
   Classes/role/RoleSupplyDoubleGun.cpp
 
+  Classes/role/RoleBulletBlue.cpp
+  Classes/role/RoleBulletYellow.cpp
+
   Classes/sceneGame/SceneGame.cpp
   Classes/sceneGame/LayerOfBg.cpp
   Classes/sceneGame/LayerOfRole.cpp
@@ -158,6 +161,9 @@ set(GAME_HEADERS
 
   Classes/role/RoleSupplySupperGun.h
   Classes/role/RoleSupplyDoubleGun.h
+
+  Classes/role/RoleBulletBlue.h
+  Classes/role/RoleBulletYellow.h
 
   Classes/sceneGame/SceneGame.h
   Classes/sceneGame/LayerOfBg.h
