@@ -94,94 +94,88 @@ void RoleManager::stopAddHero() {
 
 void RoleManager::startAddEnemySmall() {
 	if (mLayer != nullptr) {
-		mLayer->schedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddEnemySmall), 0);
+		Director::getInstance()->getScheduler()->schedule(
+				schedule_selector(RoleManager::doAddEnemySmall),/*SEL_SCHEDULE selector*/
+				this,/*Ref *target*/
+				0.5f,/*float interval*/
+				kRepeatForever,/*unsigned int repeat*/
+				0,/*float delay*/
+				false/*bool paused*/);
 	}
 }
 
 void RoleManager::stopAddEnemySmall() {
-	if (mLayer != nullptr) {
-		mLayer->unschedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddEnemySmall));
-	}
+	Director::getInstance()->getScheduler()->unschedule(
+			schedule_selector(RoleManager::doAddEnemySmall),/*SEL_SCHEDULE selector*/
+			this/*Ref *target*/);
 }
 
 void RoleManager::startAddEnemyMiddle() {
 	if (mLayer != nullptr) {
-		mLayer->schedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddAddEnemyMiddle),
-				0);
+		Director::getInstance()->getScheduler()->schedule(
+				schedule_selector(RoleManager::doAddAddEnemyMiddle),/*SEL_SCHEDULE selector*/
+				this,/*Ref *target*/
+				3,/*float interval*/
+				kRepeatForever,/*unsigned int repeat*/
+				0,/*float delay*/
+				false/*bool paused*/);
 	}
 }
 
 void RoleManager::stopAddEnemyMiddle() {
-	if (mLayer != nullptr) {
-		mLayer->unschedule(
-				CC_SCHEDULE_SELECTOR(RoleManager::doAddAddEnemyMiddle));
-	}
+	Director::getInstance()->getScheduler()->unschedule(
+				schedule_selector(RoleManager::doAddAddEnemyMiddle),/*SEL_SCHEDULE selector*/
+				this/*Ref *target*/);
 }
 
 void RoleManager::startAddEnemyBig() {
 	if (mLayer != nullptr) {
-		mLayer->schedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddEnemyBig), 0);
+		Director::getInstance()->getScheduler()->schedule(
+				schedule_selector(RoleManager::doAddEnemyBig),/*SEL_SCHEDULE selector*/
+				this,/*Ref *target*/
+				6,/*float interval*/
+				kRepeatForever,/*unsigned int repeat*/
+				0,/*float delay*/
+				false/*bool paused*/);
 	}
 }
 
 void RoleManager::stopAddEnemyBig() {
-	if (mLayer != nullptr) {
-		mLayer->unschedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddEnemyBig));
-	}
+	Director::getInstance()->getScheduler()->unschedule(
+				schedule_selector(RoleManager::doAddEnemyBig),/*SEL_SCHEDULE selector*/
+				this/*Ref *target*/);
 }
 
 void RoleManager::startAddSupplyDoubleGun() {
-	if (mLayer != nullptr) {
-		mLayer->schedule(
-				CC_SCHEDULE_SELECTOR(RoleManager::doAddSupplyDoubleGun), 0);
-	}
+
 }
 
 void RoleManager::stopAddSupplyDoubleGun() {
-	if (mLayer != nullptr) {
-		mLayer->unschedule(
-				CC_SCHEDULE_SELECTOR(RoleManager::doAddSupplyDoubleGun));
-	}
+
 }
 
 void RoleManager::startAddSupplySuperGun() {
-	if (mLayer != nullptr) {
-		mLayer->schedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddSupplySuperGun),
-				0);
-	}
+
 }
 
 void RoleManager::stopAddSupplySuperGun() {
-	if (mLayer != nullptr) {
-		mLayer->unschedule(
-				CC_SCHEDULE_SELECTOR(RoleManager::doAddSupplySuperGun));
-	}
+
 }
 
 void RoleManager::startAddBulletBlue() {
-	if (mLayer != nullptr) {
-		mLayer->schedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddBulletBlue), 0);
-	}
+
 }
 
 void RoleManager::stopAddBulletBlue() {
-	if (mLayer != nullptr) {
-		mLayer->unschedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddBulletBlue));
-	}
+
 }
 
 void RoleManager::startAddBulletYellow() {
-	if (mLayer != nullptr) {
-		mLayer->schedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddBulletYellow),
-				0);
-	}
+
 }
 
 void RoleManager::stopAddBulletYellow() {
-	if (mLayer != nullptr) {
-		mLayer->unschedule(
-				CC_SCHEDULE_SELECTOR(RoleManager::doAddBulletYellow));
-	}
+
 }
 
 void RoleManager::doAddHero(float dt) {
@@ -196,12 +190,24 @@ void RoleManager::doAddHero(float dt) {
 }
 
 void RoleManager::doAddEnemySmall(float dt) {
+	if (mLayer != nullptr) {
+		auto enemy = RoleEnemySmall::create();
+		mLayer->addChild(enemy);
+	}
 }
 
 void RoleManager::doAddAddEnemyMiddle(float dt) {
+	if (mLayer != nullptr) {
+		auto enemy = RoleEnemyMiddle::create();
+		mLayer->addChild(enemy);
+	}
 }
 
 void RoleManager::doAddEnemyBig(float dt) {
+	if (mLayer != nullptr) {
+		auto enemy = RoleEnemyBig::create();
+		mLayer->addChild(enemy);
+	}
 }
 
 void RoleManager::doAddSupplyDoubleGun(float dt) {
@@ -215,5 +221,6 @@ void RoleManager::doAddBulletBlue(float dt) {
 
 void RoleManager::doAddBulletYellow(float dt) {
 }
+
 
 

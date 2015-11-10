@@ -37,7 +37,6 @@ bool RoleEnemySmall::init() {
 		int maxX = winSize.width - enemy1Size.width / 2;
 		int rangeX = maxX - minX;
 		int actualX = (rand() % rangeX) + minX;
-		actualX = winSize.width / 2; //TODO rm this test code
 		setPosition(Point(actualX, winSize.height + enemy1Size.height / 2));
 
 		// run action
