@@ -89,7 +89,9 @@ void RoleManager::startAddHero() {
 }
 
 void RoleManager::stopAddHero() {
-	// do nothing as just schedule once
+	Director::getInstance()->getScheduler()->unschedule(
+			schedule_selector(RoleManager::doAddHero),/*SEL_SCHEDULE selector*/
+			this/*Ref *target*/);
 }
 
 void RoleManager::startAddEnemySmall() {
@@ -124,8 +126,8 @@ void RoleManager::startAddEnemyMiddle() {
 
 void RoleManager::stopAddEnemyMiddle() {
 	Director::getInstance()->getScheduler()->unschedule(
-				schedule_selector(RoleManager::doAddAddEnemyMiddle),/*SEL_SCHEDULE selector*/
-				this/*Ref *target*/);
+			schedule_selector(RoleManager::doAddAddEnemyMiddle),/*SEL_SCHEDULE selector*/
+			this/*Ref *target*/);
 }
 
 void RoleManager::startAddEnemyBig() {
@@ -142,40 +144,80 @@ void RoleManager::startAddEnemyBig() {
 
 void RoleManager::stopAddEnemyBig() {
 	Director::getInstance()->getScheduler()->unschedule(
-				schedule_selector(RoleManager::doAddEnemyBig),/*SEL_SCHEDULE selector*/
-				this/*Ref *target*/);
+			schedule_selector(RoleManager::doAddEnemyBig),/*SEL_SCHEDULE selector*/
+			this/*Ref *target*/);
 }
 
 void RoleManager::startAddSupplyDoubleGun() {
-
+	if (mLayer != nullptr) {
+		Director::getInstance()->getScheduler()->schedule(
+				schedule_selector(RoleManager::doAddSupplyDoubleGun),/*SEL_SCHEDULE selector*/
+				this,/*Ref *target*/
+				20,/*float interval*/
+				kRepeatForever,/*unsigned int repeat*/
+				0,/*float delay*/
+				false/*bool paused*/);
+	}
 }
 
 void RoleManager::stopAddSupplyDoubleGun() {
-
+	Director::getInstance()->getScheduler()->unschedule(
+			schedule_selector(RoleManager::doAddSupplyDoubleGun),/*SEL_SCHEDULE selector*/
+			this/*Ref *target*/);
 }
 
 void RoleManager::startAddSupplySuperGun() {
-
+	if (mLayer != nullptr) {
+		Director::getInstance()->getScheduler()->schedule(
+				schedule_selector(RoleManager::doAddSupplySuperGun),/*SEL_SCHEDULE selector*/
+				this,/*Ref *target*/
+				20,/*float interval*/
+				kRepeatForever,/*unsigned int repeat*/
+				5,/*float delay*/
+				false/*bool paused*/);
+	}
 }
 
 void RoleManager::stopAddSupplySuperGun() {
-
+	Director::getInstance()->getScheduler()->unschedule(
+			schedule_selector(RoleManager::doAddSupplySuperGun),/*SEL_SCHEDULE selector*/
+			this/*Ref *target*/);
 }
 
 void RoleManager::startAddBulletBlue() {
-
+	if (mLayer != nullptr) {
+		Director::getInstance()->getScheduler()->schedule(
+				schedule_selector(RoleManager::doAddBulletBlue),/*SEL_SCHEDULE selector*/
+				this,/*Ref *target*/
+				0.2f,/*float interval*/
+				30,/*unsigned int repeat*/
+				0,/*float delay*/
+				false/*bool paused*/);
+	}
 }
 
 void RoleManager::stopAddBulletBlue() {
-
+	Director::getInstance()->getScheduler()->unschedule(
+			schedule_selector(RoleManager::doAddBulletBlue),/*SEL_SCHEDULE selector*/
+			this/*Ref *target*/);
 }
 
 void RoleManager::startAddBulletYellow() {
-
+	if (mLayer != nullptr) {
+		Director::getInstance()->getScheduler()->schedule(
+				schedule_selector(RoleManager::doAddBulletYellow),/*SEL_SCHEDULE selector*/
+				this,/*Ref *target*/
+				0.2f,/*float interval*/
+				kRepeatForever,/*unsigned int repeat*/
+				0,/*float delay*/
+				false/*bool paused*/);
+	}
 }
 
 void RoleManager::stopAddBulletYellow() {
-
+	Director::getInstance()->getScheduler()->unschedule(
+			schedule_selector(RoleManager::doAddBulletYellow),/*SEL_SCHEDULE selector*/
+			this/*Ref *target*/);
 }
 
 void RoleManager::doAddHero(float dt) {
@@ -211,16 +253,42 @@ void RoleManager::doAddEnemyBig(float dt) {
 }
 
 void RoleManager::doAddSupplyDoubleGun(float dt) {
+	if (mLayer != nullptr) {
+		auto supplyDouble = RoleSupplyDoubleGun::create();
+		mLayer->addChild(supplyDouble);
+	}
 }
 
 void RoleManager::doAddSupplySuperGun(float dt) {
+	if (mLayer != nullptr) {
+		auto supplySupper = RoleSupplySupperGun::create();
+		mLayer->addChild(supplySupper);
+	}
 }
 
 void RoleManager::doAddBulletBlue(float dt) {
+	if (mLayer != nullptr && mHero != nullptr) {
+		Point heroPos = mHero->getPosition();
+		Point bulletLeft = Point(heroPos.x - 33, heroPos.y + 35);
+		Point bulletRight = Point(heroPos.x + 33, heroPos.y + 35);
+		auto bulletBlueLeft = RoleBulletYellow::create(bulletLeft.x,
+				bulletLeft.y);
+		auto bulletBlueRight = RoleBulletYellow::create(bulletRight.x,
+				bulletRight.y);
+		mLayer->addChild(bulletBlueLeft);
+		mLayer->addChild(bulletBlueRight);
+	}
 }
 
 void RoleManager::doAddBulletYellow(float dt) {
+	if (mLayer != nullptr && mHero != nullptr) {
+		Point heroPos = mHero->getPosition();
+		Point bulletPosition = Point(heroPos.x,
+				heroPos.y + mHero->getContentSize().height / 2);
+		auto bulletYellow = RoleBulletYellow::create(bulletPosition.x,
+				bulletPosition.y);
+		mLayer->addChild(bulletYellow);
+	}
 }
-
 
 
