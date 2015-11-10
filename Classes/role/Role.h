@@ -15,8 +15,7 @@ USING_NS_CC;
 
 class Role {
 public:
-	Role();
-	virtual ~Role();
+	virtual ~Role(){}
 
 	virtual void hit(Role* target) = 0;
 	virtual void gotDamage(int damage)= 0;

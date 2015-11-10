@@ -129,7 +129,7 @@ set(GAME_SRC
   Classes/sceneLoading/SceneLoading.cpp
   Classes/sceneLoading/LayerLoading.cpp
 
-  Classes/role/Role.cpp
+  Classes/role/RoleManager.cpp 
   Classes/role/RoleHeroPlane.cpp 
   Classes/role/RoleEnemySmall.cpp
   Classes/role/RoleEnemyMiddle.cpp
@@ -154,6 +154,7 @@ set(GAME_HEADERS
   Classes/sceneLoading/LayerLoading.h
 
   Classes/role/Role.h
+  Classes/role/RoleManager.h 
   Classes/role/RoleHeroPlane.h 
   Classes/role/RoleEnemySmall.h
   Classes/role/RoleEnemyMiddle.h

@@ -7,22 +7,29 @@
 
 #include "LayerOfRole.h"
 #include "../role/Role.h"
-#include "../role/RoleHeroPlane.h"
-#include "../role/RoleEnemySmall.h"
-#include "../role/RoleEnemyMiddle.h"
-#include "../role/RoleEnemyBig.h"
-#include "../role/RoleSupplySupperGun.h"
-#include "../role/RoleSupplyDoubleGun.h"
-#include "../role/RoleBulletBlue.h"
-#include "../role/RoleBulletYellow.h"
+//#include "../role/RoleHeroPlane.h"
+//#include "../role/RoleEnemySmall.h"
+//#include "../role/RoleEnemyMiddle.h"
+//#include "../role/RoleEnemyBig.h"
+//#include "../role/RoleSupplySupperGun.h"
+//#include "../role/RoleSupplyDoubleGun.h"
+//#include "../role/RoleBulletBlue.h"
+//#include "../role/RoleBulletYellow.h"
+#include "../role/RoleManager.h"
 
 LayerOfRole::LayerOfRole() {
-	// TODO Auto-generated constructor stub
-
+	mRoleManager = new (std::nothrow) RoleManager();
+	if (mRoleManager != nullptr) {
+		mRoleManager->registerLayer(this);
+	}
 }
 
 LayerOfRole::~LayerOfRole() {
-	// TODO Auto-generated destructor stub
+	if (mRoleManager != nullptr) {
+		mRoleManager->unRegisterLayer(this);
+		mRoleManager->release();
+		mRoleManager = nullptr;
+	}
 }
 
 bool LayerOfRole::init() {
@@ -33,8 +40,11 @@ bool LayerOfRole::init() {
 		registerPhysicalEventListener();
 		cacheAnimation();
 
-		auto hero = RoleHeroPlane::create();
-		addChild(hero);
+		if (mRoleManager != nullptr) {
+			mRoleManager->startAddAll();
+		}
+		//auto hero = RoleHeroPlane::create();
+		//addChild(hero);
 
 		//auto enemySmall = RoleEnemySmall::create();
 		//addChild(enemySmall);
@@ -51,12 +61,14 @@ bool LayerOfRole::init() {
 		//auto supplyDouble = RoleSupplyDoubleGun::create();
 		//addChild(supplyDouble);
 
-		auto winSize = Director::getInstance()->getWinSize();
-		auto bulletYellow = RoleBulletYellow::create(winSize.width / 2, getContentSize().height / 2);
-		addChild(bulletYellow);
-
-		auto bulletBlue = RoleBulletBlue::create(winSize.width / 2 + 20, getContentSize().height / 2);
-		addChild(bulletBlue);
+		//auto winSize = Director::getInstance()->getWinSize();
+		//auto bulletYellow = RoleBulletYellow::create(winSize.width / 2,
+		//		getContentSize().height / 2);
+		//addChild(bulletYellow);
+		//
+		//auto bulletBlue = RoleBulletBlue::create(winSize.width / 2 + 20,
+		//		getContentSize().height / 2);
+		//addChild(bulletBlue);
 
 		bRet = true;
 	} while (0);
@@ -153,4 +165,5 @@ void LayerOfRole::cacheAnimation() {
 	AnimationCache::getInstance()->addAnimation(animation3, "Enemy3Blowup");
 
 }
+
 

@@ -12,18 +12,23 @@
 
 USING_NS_CC;
 
-class LayerOfRole : public cocos2d::Layer {
+class RoleManager;
+
+class LayerOfRole: public cocos2d::Layer {
 public:
 	LayerOfRole();
 	virtual ~LayerOfRole();
 
 	virtual bool init();
-	CREATE_FUNC(LayerOfRole);
+	CREATE_FUNC (LayerOfRole);
 
 private:
 	void registerPhysicalEventListener();
 	void cacheAnimation();
+
+	RoleManager* mRoleManager;
 };
 
 #endif /* LAYEROFROLE_H_ */
+
 
