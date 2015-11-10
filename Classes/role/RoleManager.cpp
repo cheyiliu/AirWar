@@ -78,7 +78,13 @@ void RoleManager::unRegisterLayer(Layer* layer) {
 
 void RoleManager::startAddHero() {
 	if (mLayer != nullptr) {
-		mLayer->scheduleOnce(CC_SCHEDULE_SELECTOR(RoleManager::doAddHero), 0);
+		Director::getInstance()->getScheduler()->schedule(
+				schedule_selector(RoleManager::doAddHero),/*SEL_SCHEDULE selector*/
+				this,/*Ref *target*/
+				0,/*float interval*/
+				0,/*unsigned int repeat*/
+				0,/*float delay*/
+				false/*bool paused*/);
 	}
 }
 
@@ -114,8 +120,7 @@ void RoleManager::stopAddEnemyMiddle() {
 
 void RoleManager::startAddEnemyBig() {
 	if (mLayer != nullptr) {
-		mLayer->schedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddEnemyBig),
-				0);
+		mLayer->schedule(CC_SCHEDULE_SELECTOR(RoleManager::doAddEnemyBig), 0);
 	}
 }
 
@@ -210,4 +215,5 @@ void RoleManager::doAddBulletBlue(float dt) {
 
 void RoleManager::doAddBulletYellow(float dt) {
 }
+
 
