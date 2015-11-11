@@ -6,19 +6,29 @@ AirWar is an Open Source game based on Cocos3.x. Tense and exciting, try and see
 ## Features
  * Based on the latest cocos 3.8.
  * Use the physical engine to do the collision detection.
+ * Use event to low coupling the codes.
  * More for you to explore.
- 
+
+## Architecture
+ * ![Architecture](https://github.com/cheyiliu/AirWar/blob/master/raw/AirWar_Architecture.png) 
+
+## The physical settings
+ * ![can hit](https://github.com/cheyiliu/AirWar/blob/master/raw/can_hit.png) 
+ * ![physics body](https://github.com/cheyiliu/AirWar/blob/master/raw/physics_body.png) 
+
+## The physical settings
+ * ![class](https://github.com/cheyiliu/AirWar/blob/master/raw/class.jpg) 
+
 ## Latest Downloads
  * **[see releases](https://github.com/cheyiliu/AirWar/releases)** 
+
+## Bugs Report
+If you find any bug when using AirWar, please report **[here](https://github.com/cheyiliu/AirWar/issues/new)**. Thanks for helping us building a better one.
 
 ## Developed By
  * cheyiliu - cheyiliu@gmail.com
  * blog - http://blog.csdn.net/cheyiliu
  * qq - 251561515
-
-
-## Bugs Report
-If you find any bug when using AirWar, please report **[here](https://github.com/cheyiliu/AirWar/issues/new)**. Thanks for helping us building a better one.
 
 ## Change logs
 
@@ -30,6 +40,9 @@ If you find any bug when using AirWar, please report **[here](https://github.com
 
 ### v0.1
  * the blueprint is ready
+
+### Thanks
+ * Some code is from this [open project](https://github.com/fusijie/Airplane_3.0)
  
 ## License
 ```
