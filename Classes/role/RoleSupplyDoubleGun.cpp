@@ -42,9 +42,8 @@ bool RoleSupplyDoubleGun::init() {
 		auto move1 = MoveBy::create(0.5, Point(0, -150));
 		auto move2 = MoveBy::create(0.3, Point(0, 100));
 		auto move3 = MoveBy::create(1.0, Point(0, 0-winSize.height-bigBoomSize.height/2));
-		auto moveDone = CallFuncN::create(CC_CALLBACK_0(RoleSupplyDoubleGun::removeFromParent, this));
-
-		auto sequence = Sequence::create(move1, move2, move3, moveDone, nullptr);
+		auto actionDone = RemoveSelf::create(true);
+		auto sequence = Sequence::create(move1, move2, move3, actionDone, nullptr);
 		runAction(sequence);
 
 		bRet = true;
@@ -65,7 +64,8 @@ void RoleSupplyDoubleGun::gotSupply(int supply) {
 }
 
 void RoleSupplyDoubleGun::down() {
-	removeFromParent();
+	auto actionDone = RemoveSelf::create(true);
+	runAction(actionDone);
 }
 
 

@@ -89,9 +89,8 @@ void RoleHeroPlane::down() {
 					"hero_blowup_n4.png"));
 
 	auto animate = Animate::create(animation);
-	auto removePlane = CallFunc::create(
-			CC_CALLBACK_0(RoleHeroPlane::removeFromParent, this));
-	auto sequence = Sequence::create(animate, removePlane, nullptr);
+	auto actionDone = RemoveSelf::create(true);
+	auto sequence = Sequence::create(animate, actionDone, nullptr);
 	stopAllActions();
 	runAction(sequence);
 }

@@ -55,9 +55,7 @@ bool RoleBulletBlue::init(float x, float y) {
 				Point(bulletPosition.x,
 						Director::getInstance()->getWinSize().height
 								+ getContentSize().height / 2));
-		auto actionDone = CallFuncN::create(
-				CC_CALLBACK_0(RoleBulletBlue::removeFromParent, this));
-
+		auto actionDone = RemoveSelf::create(true);
 		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 		runAction(sequence);
 
@@ -80,6 +78,7 @@ void RoleBulletBlue::gotSupply(int supply) {
 }
 
 void RoleBulletBlue::down() {
-	removeFromParent();
+	auto actionDone = RemoveSelf::create(true);
+	runAction(actionDone);
 }
 

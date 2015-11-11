@@ -49,9 +49,7 @@ bool RoleEnemyMiddle::init() {
 
 		auto actionMove = MoveTo::create(actualDuration,
 				Point(actualX, 0 - getContentSize().height / 2));
-		auto actionDone = CallFuncN::create(
-				CC_CALLBACK_0(RoleEnemyMiddle::removeFromParent, this));
-
+		auto actionDone = RemoveSelf::create(true);
 		auto sequence = Sequence::create(actionMove, actionDone, nullptr);
 		runAction(sequence);
 
@@ -78,10 +76,8 @@ void RoleEnemyMiddle::down() {
 	auto animation = AnimationCache::getInstance()->getAnimation(
 			"Enemy2Blowup");
 	auto animate = Animate::create(animation);
-
-	auto remove = CallFunc::create(
-			CC_CALLBACK_0(RoleEnemyMiddle::removeFromParent, this));
-	auto sequence = Sequence::create(animate, remove, nullptr);
+	auto actionDone = RemoveSelf::create(true);
+	auto sequence = Sequence::create(animate, actionDone, nullptr);
 	runAction(sequence);
 }
 
