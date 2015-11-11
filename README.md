@@ -16,7 +16,7 @@ AirWar is an Open Source game based on Cocos3.x. Tense and exciting, try and see
  * ![can hit](https://github.com/cheyiliu/AirWar/blob/master/raw/can_hit.png) 
  * ![physics body](https://github.com/cheyiliu/AirWar/blob/master/raw/physics_body.png) 
 
-## The physical settings
+## The class diagram
  * ![class](https://github.com/cheyiliu/AirWar/blob/master/raw/class.jpg) 
 
 ## Latest Downloads
