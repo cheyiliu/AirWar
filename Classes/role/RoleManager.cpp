@@ -271,9 +271,9 @@ void RoleManager::doAddBulletBlue(float dt) {
 		Point heroPos = mHero->getPosition();
 		Point bulletLeft = Point(heroPos.x - 33, heroPos.y + 35);
 		Point bulletRight = Point(heroPos.x + 33, heroPos.y + 35);
-		auto bulletBlueLeft = RoleBulletYellow::create(bulletLeft.x,
+		auto bulletBlueLeft = RoleBulletBlue::create(bulletLeft.x,
 				bulletLeft.y);
-		auto bulletBlueRight = RoleBulletYellow::create(bulletRight.x,
+		auto bulletBlueRight = RoleBulletBlue::create(bulletRight.x,
 				bulletRight.y);
 		mLayer->addChild(bulletBlueLeft);
 		mLayer->addChild(bulletBlueRight);
