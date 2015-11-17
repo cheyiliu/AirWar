@@ -8,6 +8,7 @@
 #include "SceneGame.h"
 #include "LayerOfBg.h"
 #include "LayerOfRole.h"
+#include "LayerOfControl.h"
 
 USING_NS_CC;
 
@@ -41,5 +42,9 @@ Scene* SceneGame::create() {
 	auto layerRole = LayerOfRole::create();
 	scene->addChild(layerRole, 20);
 
+	auto layerCtrl = LayerOfControl::create();
+	scene->addChild(layerCtrl, 50);
+
 	return scene;
 }
+
