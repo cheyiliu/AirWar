@@ -31,15 +31,10 @@ If you find any bug when using AirWar, please report **[here](https://github.com
  * qq - 251561515
 
 ## Change logs
-
-### v0.3
- * the physical engine is work
-
-### v0.2
- * the loading scene is ready
-
-### v0.1
- * the blueprint is ready
+ * v0.5 all roles are ready
+ * v0.3 the physical engine is work
+ * v0.2 the loading scene is ready
+ * v0.1 the blueprint is ready
 
 ### Thanks
  * Some code is from this [open project](https://github.com/fusijie/Airplane_3.0)
